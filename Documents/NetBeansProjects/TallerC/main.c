@@ -6,16 +6,18 @@
 
 /* 
  * File:   main.c
- * Author: MIGUEL
- *
+ * Author: SEBASTIAN JOYA BELTRAN.
+ *         JUAN GARCIA. 
+ *         MAYKOL SANCHEZ.
  * Created on 10 de junio de 2020, 10:10 PM
  */
+
 
 #include <stdio.h>
 #include <stdlib.h>
 
 /*
- * 
+ *Taller colaborativo en C el cual se desarrollara un menu con siete opciones. 
  */
 int main(int argc, char** argv) {
 
