@@ -12,20 +12,27 @@
  * Created on 10 de junio de 2020, 10:10 PM
  */
 
-
+//lIBRERIAS A UTILIZAR.
 #include <stdio.h>
 #include <stdlib.h>
-#include<string.h>
+#include <math.h>
+#include <string.h>
+#include <ctype.h>
 
 /*
- *Taller colaborativo en C el cual se desarrollara un menu con siete opciones. 
+ *Taller colaborativo en C el cual se desarrollara un menu con siete opciones.
+ *PROGRAMACION III. 
  */
+
+
+//Implementacion del metodo del EJERCICIO 5.
+
 void SumaDigitos(int intervaloUno, int intervaloDos,int numOmitir){
     
 int suma= 0;
 int contador=0;
 
-//Implementacion del metodo del EJERCICIO 5.
+
 void separarIntervalos(int numero, int digito){
     char cadena[100000];
     sprintf(cadena, "%d", numero);
@@ -76,61 +83,66 @@ void separarIntervalos(int numero, int digito){
 }
 
 //Implementacion del metodo del EJERCICIO 6.
-char* funcion (int n){
+
+char* funcion_Fibonacci (int numero){
     char* cadena="";
-    char* s1="";
-    char*s2="";
-	if (n==0){
+    char*funcion1="";
+    char*funcion2="";
+	if (numero==0){
 		cadena="0";
 	}
 	
-    else if (n==1){
+    else if (numero==1){
 		cadena="1";
 	}
 	
-    else if (n>=2){
-            s1=funcion(n-1);
-            s2=funcion(n-2);
-             const size_t len1 = strlen(s1);
-             const size_t len2 = strlen(s2);
-            char *result = malloc(len1 + len2 + 1); 
-            memcpy(result, s1, len1);
-            memcpy(result + len1, s2, len2 + 1);
-            cadena=result;
+    else if (numero>=2){
+            funcion1=funcion_Fibonacci(numero-1);
+            funcion2=funcion_Fibonacci(numero-2);
+             const size_t linea1 = strlen(funcion1);
+             const size_t linea2 = strlen(funcion2);
+            char *resultado = malloc(linea1 + linea2 + 1); 
+            memcpy(resultado, funcion1, linea1);
+            memcpy(resultado + linea1, funcion2, linea2 + 1);
+            cadena=resultado;
 	}
 	return cadena;
 }
-int Fibonacci(char* cadena1,char* cadena2){
-    char*busqueda=NULL;
-    busqueda=strstr(cadena1,cadena2);
+int Comparacion(char* cadena1,char* cadena2){
+    char*buscar=NULL;
+    buscar=strstr(cadena1,cadena2);
     int i=0;
-    while(busqueda!=0){
+    while(buscar!=0){
         i++;
-        busqueda=strstr(busqueda+1,cadena2);
+        buscar=strstr(buscar+1,cadena2);
     }
     return i;
     
 }
 
-int main(int argc, char** argv) {
+//METODO MAIN DONDE SE LLEVARA A CABO LA EJECUCION DEL MENU CON SUS RESPECTIVAS OPCIONES
 
-     int optionmenu = 0;
-    while(optionmenu != 8){
-        printf("***bienvenidos al menu****\n \n");
-        printf("*1° punto : numeros primos desendientes \n");
-        printf("*2° punto : verificacion de numeros egolatras \n");
-        printf("*3° punto : verificacion de numeros magicos \n");
-        printf("*4° punto : a calcular el IMC (indice de masa corporal)\n");
-        printf("*5° punto : calcular suma de digitos en un rango numerico\n");        
-        printf("*6° punto : calcular serie fibonacci\n");
-        printf("*7° punto : prueba cadena XOXO\n");
-        printf("*8*.SALIR****\n");
-        printf("Por favor digite uel numero que corresponde al punto a ejecutar \n");
-        scanf("%d",&optionmenu);
+int main(int argc, char** argv) {
+        int numero=0; 
+        char* cadena2="";
+        int optionmenu = 0;
+        while(optionmenu != 8){
+            printf("***bienvenidos al menu****\n \n");
+            printf("*1° punto : numeros primos desendientes \n");
+            printf("*2° punto : verificacion de numeros egolatras \n");
+            printf("*3° punto : verificacion de numeros magicos \n");
+            printf("*4° punto : a calcular el IMC (indice de masa corporal)\n");
+            printf("*5° punto : calcular suma de digitos en un rango numerico\n");        
+            printf("*6° punto : calcular serie fibonacci\n");
+            printf("*7° punto : prueba cadena XOXO\n");
+            printf("*8*.SALIR****\n");
+            printf("Por favor digite uel numero que corresponde al punto a ejecutar \n");
+            scanf("%d",&optionmenu);
         
         switch(optionmenu){
             
             case 1:
+                
                 printf("ha seleccionado el 1° punto \n \n");
                 int num,x,y,cont=0;
                 printf("digite el valor numerico del cual desea ver los numeros primos \n");
@@ -151,6 +163,7 @@ int main(int argc, char** argv) {
             
             
             case 2:
+                
                 printf("ha seleccionado el 2° punto \n \n");
                 int numero,a,b,c,resultado;
                 printf("digite el valor numerico el cual desea verificar si es egolatra \n");
@@ -200,6 +213,15 @@ int main(int argc, char** argv) {
                 
             
             case 6:
+                printf("Ha seleccionado el 6Â° punto \n\n");
+                printf("digite el valor para la funcion de la serie fibonacci \n");
+                scanf("%d",&numero);
+                printf("digite la cadena para verificarla dentro de la serie \n");
+                scanf("%s",&cadena2);
+                char* cadena1=funcion_Fibonacci(numero);
+                printf("La cadena se encotro ");
+                printf("%d",Comparacion(cadena1,&cadena2));
+                printf(" veces\n");
                 break;
                 
                 
