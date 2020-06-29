@@ -42,46 +42,45 @@ int main(int argc, char** argv) {
                 int num,x,y,cont=0;
                 printf("digite el valor numerico del cual desea ver los numeros primos \n");
                 scanf("%i",&y);
-    for(num=y;num>=1;num--){
-        for(x=1;x<=num;x++){
-            if(num%x==0){
-                 cont++;
-            }     
-        } if(cont==2){
-                  printf("%d-",num);
+                for(num=y;num>=1;num--){
+                     for(x=1;x<=num;x++){
+                           if(num%x==0){
+                            cont++;
+                           }     
+                     } if(cont==2){
+                          printf("%d-",num);
                
-            }
-              cont=0;
-          
-    }
+                       }
+                         cont=0;
+                 }
                 printf("\nha ejecutado el 1° punto con exito \n");
                 break;
             
             
             case 2:
-               printf("ha seleccionado el 2° punto \n \n");
+                printf("ha seleccionado el 2° punto \n \n");
                 int numero,a,b,c,resultado;
-    printf("digite el valor numerico el cual desea verificar si es egolatra \n");
-    scanf("%i",&numero);
-    a=numero/100;
-    b = (numero - a*100)/10;
-    c = (numero - a*100 - b*10);
+                printf("digite el valor numerico el cual desea verificar si es egolatra \n");
+                scanf("%i",&numero);
+                a=numero/100;
+                b = (numero - a*100)/10;
+                c = (numero - a*100 - b*10);
     
-    printf( "\nEl numero a provar es : " );
-    printf("\n");
-      printf("%d-",a);
-      printf("%d-",b);
-      printf("%d-",c);
-      printf("\n");
-      resultado=(a*a*a)+(b*b*b)+(c*c*c);
-      if(resultado==numero){
-          printf("el numero es egolatra\n");
-      }
-      else{
-          printf("el numero no es egolatra\n");
-      }
-       printf("\nha ejecutado el 2° punto con exito \n");
-                break;
+                printf( "\nEl numero a provar es : " );
+                printf("\n");
+                printf("%d-",a);
+                printf("%d-",b);
+                printf("%d-",c);
+                printf("\n");
+                resultado=(a*a*a)+(b*b*b)+(c*c*c);
+               if(resultado==numero){
+                    printf("el numero es egolatra\n");
+               }
+               else{
+                    printf("el numero no es egolatra\n");
+               }
+                    printf("\nha ejecutado el 2° punto con exito \n");
+                    break;
                 
             
            case 3:
