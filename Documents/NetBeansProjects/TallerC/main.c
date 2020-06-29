@@ -59,6 +59,28 @@ int main(int argc, char** argv) {
             
             
             case 2:
+               printf("ha seleccionado el 2° punto \n \n");
+                int numero,a,b,c,resultado;
+    printf("digite el valor numerico el cual desea verificar si es egolatra \n");
+    scanf("%i",&numero);
+    a=numero/100;
+    b = (numero - a*100)/10;
+    c = (numero - a*100 - b*10);
+    
+    printf( "\nEl numero a provar es : " );
+    printf("\n");
+      printf("%d-",a);
+      printf("%d-",b);
+      printf("%d-",c);
+      printf("\n");
+      resultado=(a*a*a)+(b*b*b)+(c*c*c);
+      if(resultado==numero){
+          printf("el numero es egolatra\n");
+      }
+      else{
+          printf("el numero no es egolatra\n");
+      }
+       printf("\nha ejecutado el 2° punto con exito \n");
                 break;
                 
             
