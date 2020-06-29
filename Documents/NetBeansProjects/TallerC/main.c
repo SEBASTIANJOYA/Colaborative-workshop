@@ -81,6 +81,59 @@ void separarIntervalos(int numero, int digito){
     
    
 }
+
+
+char* estadoIMC(float peso,float altura, int gen){
+    char* estado="";
+    float imc=peso/(pow((altura/100),2));   
+    if (gen==0){
+        if (imc<17){
+            estado="desnutricion";
+         }
+        else if ( imc>=17 && imc<=20){
+            estado="Bajo peso";
+         }
+        else if ( imc>20 && imc<=25){
+            estado="Normal";
+         }
+        else if ( imc>25 && imc<=30){
+            estado="Sobrepeso";
+         }
+        else if ( imc>30 && imc<=35){
+            estado="Obesidad";
+         }
+        else if ( imc>35 && imc<=40){
+            estado="Obesidad marcada";
+         }
+        else if(imc>40) {
+            estado="obesidad morbida";
+         }
+    }
+    else if(gen=!0){
+        if (imc<16){
+            estado="desnutricion";
+         }
+        else if ( imc>=16 && imc<=20){
+            estado="Bajo peso";
+         }
+        else if ( imc>20 && imc<=24){
+            estado="Normal";
+         }
+        else if ( imc>24 && imc<=29){
+            estado="Sobrepeso";
+         }
+        else if ( imc>29 && imc<=34){
+            estado="Obesidad";
+         }
+        else if ( imc>34 && imc<=39){
+            estado="Obesidad marcada";
+         }
+        else if (imc>39) {
+            estado="obesidad morbida";
+         }
+    }
+    return estado;
+}
 //metodo ejercicio 2
 void  punto2(int numero){
       int a,b,c,resultado;

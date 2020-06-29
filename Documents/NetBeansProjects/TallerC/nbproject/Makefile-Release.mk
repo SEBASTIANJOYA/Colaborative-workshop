@@ -18,7 +18,7 @@ CC=gcc
 CCC=g++
 CXX=g++
 FC=gfortran
-AS=as.exe 
+AS=as
 
 # Macros
 CND_PLATFORM=Cygwin-Windows
