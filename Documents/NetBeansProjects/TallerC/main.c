@@ -81,6 +81,46 @@ void separarIntervalos(int numero, int digito){
     
    
 }
+//metodo ejercicio 2
+void  punto2(int numero){
+      int a,b,c,resultado;
+  a=numero/100;
+                b = (numero - a*100)/10;
+                c = (numero - a*100 - b*10);
+    
+                printf( "\nEl numero a provar es : " );
+                printf("\n");
+                printf("%d-",a);
+                printf("%d-",b);
+                printf("%d-",c);
+                printf("\n");
+                resultado=(a*a*a)+(b*b*b)+(c*c*c);
+               if(resultado==numero){
+                    printf("el numero es egolatra\n");
+               }
+               else{
+                    printf("el numero no es egolatra\n");
+               }
+                    printf("\nha ejecutado el 2° punto con exito \n");  
+}
+
+
+//metodo ejercicio 1
+void punto1(int y){
+      int num,x,cont=0;
+   for(num=y;num>=1;num--){
+                     for(x=1;x<=num;x++){
+                           if(num%x==0){
+                            cont++;
+                           }     
+                     } if(cont==2){
+                          printf("%d-",num);
+               
+                       }
+                         cont=0;
+                 }
+                printf("\nha ejecutado el 1° punto con exito \n"); 
+}
 
 //Implementacion del metodo del EJERCICIO 6.
 
@@ -144,56 +184,41 @@ int main(int argc, char** argv) {
             case 1:
                 
                 printf("ha seleccionado el 1° punto \n \n");
-                int num,x,y,cont=0;
+                int t;
                 printf("digite el valor numerico del cual desea ver los numeros primos \n");
-                scanf("%i",&y);
-                for(num=y;num>=1;num--){
-                     for(x=1;x<=num;x++){
-                           if(num%x==0){
-                            cont++;
-                           }     
-                     } if(cont==2){
-                          printf("%d-",num);
-               
-                       }
-                         cont=0;
-                 }
-                printf("\nha ejecutado el 1° punto con exito \n");
+                scanf("%i",&t);
+                punto1(t);
                 break;
             
             
             case 2:
                 
                 printf("ha seleccionado el 2° punto \n \n");
-                int numero,a,b,c,resultado;
+                int numer;
                 printf("digite el valor numerico el cual desea verificar si es egolatra \n");
-                scanf("%i",&numero);
-                a=numero/100;
-                b = (numero - a*100)/10;
-                c = (numero - a*100 - b*10);
-    
-                printf( "\nEl numero a provar es : " );
-                printf("\n");
-                printf("%d-",a);
-                printf("%d-",b);
-                printf("%d-",c);
-                printf("\n");
-                resultado=(a*a*a)+(b*b*b)+(c*c*c);
-               if(resultado==numero){
-                    printf("el numero es egolatra\n");
-               }
-               else{
-                    printf("el numero no es egolatra\n");
-               }
-                    printf("\nha ejecutado el 2° punto con exito \n");
+                scanf("%i",&numer);
+                punto2(numer);
+                
                     break;
                 
             
            case 3:
+               printf("ha seleccionado el 3° punto \n \n");
+               
+               
+               
+               
+                 printf("\nha ejecutado el 3° punto con exito \n");
                 break;
                 
             
             case 4:
+                printf("ha seleccionado el 4° punto \n \n");
+                
+                
+                
+                
+                  printf("\nha ejecutado el 4° punto con exito \n");
                 break;    
                 
             
@@ -209,11 +234,12 @@ int main(int argc, char** argv) {
                  printf("digite el valor a omitir \n");
                  scanf("%d",&numomitir);
                  SumaDigitos(intervalouno,intervalodos,numomitir);
+                   printf("\nha ejecutado el 5° punto con exito \n");
                  break;
                 
             
             case 6:
-                printf("Ha seleccionado el 6Â° punto \n\n");
+                printf("Ha seleccionado el 6° punto \n\n");
                 printf("digite el valor para la funcion de la serie fibonacci \n");
                 scanf("%d",&numero);
                 printf("digite la cadena para verificarla dentro de la serie \n");
@@ -222,11 +248,34 @@ int main(int argc, char** argv) {
                 printf("La cadena se encotro ");
                 printf("%d",Comparacion(cadena1,&cadena2));
                 printf(" veces\n");
+                  printf("\nha ejecutado el 6° punto con exito \n");
                 break;
                 
                 
             
             case 7:
+     printf("ha seleccionado el 7° punto \n \n");
+    
+    printf("digite la cadena xo \n");
+     char cadena[1000];
+    scanf("%s",&cadena);
+    int cont=0,suma=0;
+    
+    for(int i=0;i<=strlen(cadena);i++){
+        if(cadena[i]=='O'||cadena[i]=='o'||cadena[i]=='0'){
+            cont++;
+            suma=suma+cont;
+        }
+        
+        else {
+            cont=0;
+        }
+        
+    }
+    printf("puntaje total: ");
+    printf("%d",suma);
+    printf("\n");
+      printf("\nha ejecutado el 7° punto con exito \n");
                 break;
                 
                 

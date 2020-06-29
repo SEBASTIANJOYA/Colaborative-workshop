@@ -18,10 +18,10 @@ CC=gcc
 CCC=g++
 CXX=g++
 FC=gfortran
-AS=as
+AS=as.exe 
 
 # Macros
-CND_PLATFORM=MinGW-Windows
+CND_PLATFORM=Cygwin-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Release
 CND_DISTDIR=dist
