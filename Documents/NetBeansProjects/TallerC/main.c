@@ -23,21 +23,38 @@ int main(int argc, char** argv) {
 
      int optionmenu = 0;
     while(optionmenu != 8){
-        printf("***bienvenidos al menu****");
-        printf("*1*.****");
-        printf("*2*.****");
-        printf("*3*.****");
-        printf("*4*.****");
-        printf("*5*.****");        
-        printf("*6*.****");
-        printf("*7*.****");
-        printf("*8*.SALIR****");
-        printf("Digite una opcion....");
+        printf("***bienvenidos al menu****\n \n");
+        printf("*1° punto : numeros primos desendientes \n");
+        printf("*2° punto : verificacion de numeros egolatras \n");
+        printf("*3° punto : verificacion de numeros magicos \n");
+        printf("*4° punto : a calcular el IMC (indice de masa corporal)\n");
+        printf("*5° punto : calcular suma de digitos en un rango numerico\n");        
+        printf("*6° punto : calcular serie fibonacci\n");
+        printf("*7° punto : prueba cadena XOXO\n");
+        printf("*8*.SALIR****\n");
+        printf("Por favor digite uel numero que corresponde al punto a ejecutar \n");
         scanf("%d",&optionmenu);
         
         switch(optionmenu){
             
             case 1:
+                printf("ha seleccionado el 1° punto \n \n");
+                int num,x,y,cont=0;
+                printf("digite el valor numerico del cual desea ver los numeros primos \n");
+                scanf("%i",&y);
+    for(num=y;num>=1;num--){
+        for(x=1;x<=num;x++){
+            if(num%x==0){
+                 cont++;
+            }     
+        } if(cont==2){
+                  printf("%d-",num);
+               
+            }
+              cont=0;
+          
+    }
+                printf("\nha ejecutado el 1° punto con exito \n");
                 break;
             
             
@@ -72,7 +89,7 @@ int main(int argc, char** argv) {
         }
                 
     }
-
+    
     return (EXIT_SUCCESS);
 }
   
