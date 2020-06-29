@@ -267,7 +267,16 @@ int main(int argc, char** argv) {
             
             case 4:
                 printf("ha seleccionado el 4° punto \n \n");
-                
+                float peso,altura,imc;
+     int gen;
+     printf("digite su peso en kilogramos \n");
+     scanf("%f"  ,&peso) ;
+     printf("digite su altura en centimetros \n");
+     scanf("%f"  ,&altura);
+     printf("digite su genero 0:masculino, 1:femenino \n");
+     scanf("%i"  ,&gen);
+     imc=peso/(pow((altura/100),2));  ;     
+     printf("estado segun su IMC con valor %.2f es [%s]", imc,estadoIMC(peso,altura,gen));
                 
                 
                 
