@@ -302,7 +302,9 @@ int validar_numero(char numero[])
 int main(int argc, char** argv) {
         int numero=0; 
         char* cadena2="";
+        char * t = 0;
         int optionmenu = 0;
+        int primo = 0;
         while(optionmenu != 8){
             printf("***bienvenidos al menu****\n \n");
             printf("*1° punto : numeros primos desendientes \n");
@@ -320,11 +322,14 @@ int main(int argc, char** argv) {
             
             case 1:
                 
+                do{
                 printf("ha seleccionado el 1° punto \n \n");
-                int t;
+                
                 printf("digite el valor numerico del cual desea ver los numeros primos \n");
                 scanf("%i",&t);
-                punto1(t);
+                primo = validar_numero(&t);
+                }while(primo == 0);
+                punto1(atoi(&t));
                 break;
             
             
