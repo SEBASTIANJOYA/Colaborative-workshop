@@ -175,6 +175,22 @@ void punto1(int y){
                 printf("\nha ejecutado el 1° punto con exito \n"); 
 }
 
+
+
+int validar_numero(char numero[])
+{
+    int i;
+    for(i=0; i<strlen(numero); i++)
+    {
+        if(!(isdigit(numero[i])))
+        {
+            printf("\nINGRESA SOLO NUMEROS ENTEROS \n");
+            
+            return 0;
+        }
+    }
+    return 1;
+}
 //Implementacion del metodo del EJERCICIO 6.
 
 char* funcion_Fibonacci (int numero){
@@ -212,6 +228,68 @@ int Comparacion(char* cadena1,char* cadena2){
     return i;
     
 }
+
+int NumeroMagico(int numero){
+    int Magico=numero,contador=0,guardar=numero,operation=0,verificar=0;
+ while(numero>0){
+        numero=numero/10;
+        contador++;
+    }
+    int x[contador];
+    int i=0;
+    while(guardar>0 &&i<contador){
+            x[i]=guardar%10;
+        guardar=guardar/10;
+        i++;
+    }
+    operation=Descendente(contador,x)-Ascendente(contador,x);
+    if(operation==Magico){
+        verificar=1;
+    }
+    else{
+        verificar=0;
+    }
+    return verificar;
+}
+int Descendente(int cont, int x[]){
+    int temp=0;
+    int suma=0;
+    for (int i=0; i <cont; i=i+1){
+        for (int j=0; j <cont; j=j+1){
+            if ( x[i] < x[j] ){
+            temp= x[i];
+            x[i]=x[j];
+            x[j]=temp;
+            }
+        } 
+}
+    for (int i=0; i <cont; i=i+1){ 
+    }
+    for(int i=0;i<=cont;i++){
+        suma=suma+(x[i]*pow(10,i));  
+    }  
+   return suma ;
+}
+int Ascendente(int cont, int x[]){
+    int aux=0;
+    for (int i = cont; i >= 1; i--) {
+        for (int j = 0; j <= i; j++) {
+            if (x[j] < x[j+1])
+          {
+            aux = x[j];
+            x[j]= x[j+1];
+            x[j+1]= aux;
+           }
+    }
+    }
+    int suma=0;
+   for(int i=cont;i>=0;i--){
+        suma=suma+(x[i]*pow(10,i));
+    }
+    return suma; 
+}
+
+
 
 //METODO MAIN DONDE SE LLEVARA A CABO LA EJECUCION DEL MENU CON SUS RESPECTIVAS OPCIONES
 
@@ -257,8 +335,20 @@ int main(int argc, char** argv) {
             
            case 3:
                printf("ha seleccionado el 3° punto \n \n");
-               
-               
+                  char* validar = 0;
+               do{
+                  
+                    printf("digite el numero que desea ver si es magico \n");
+                  scanf("%s", &validar);
+                  numero=validar_numero(&validar);
+                  }while(numero==0);
+                  if(NumeroMagico(atoi(&validar))==1){
+                      printf("El numero es magico");
+                  }
+                  else{
+                      printf("El numero no es magico");
+                  }
+                  
                
                
                  printf("\nha ejecutado el 3° punto con exito \n");
@@ -349,7 +439,9 @@ int main(int argc, char** argv) {
     }
     
     return (EXIT_SUCCESS);
+    
 }
+
   
 
 
