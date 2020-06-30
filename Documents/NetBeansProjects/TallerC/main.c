@@ -288,7 +288,7 @@ int validar_numero(char numero[])
     {
         if(!(isdigit(numero[i])))
         {
-            printf("\nINGRESA SOLO NUMEROS ENTEROS \n");
+            printf("\ncaracteres erroneos intente de nuevo \n");
             
             return 0;
         }
@@ -299,8 +299,9 @@ int validar_numero(char numero[])
 
 //METODO MAIN DONDE SE LLEVARA A CABO LA EJECUCION DEL MENU CON SUS RESPECTIVAS OPCIONES
 
-int main(int argc, char** argv) {
+void main() {
         int numero=0; 
+        char* validar = 0;
         char* cadena2="";
         char * t = 0;
         int optionmenu = 0;
@@ -321,12 +322,12 @@ int main(int argc, char** argv) {
         switch(optionmenu){
             
             case 1:
-                
-                do{
+               
+                do{   
                 printf("ha seleccionado el 1° punto \n \n");
                 
                 printf("digite el valor numerico del cual desea ver los numeros primos \n");
-                scanf("%i",&t);
+                scanf("%s",&t);
                 primo = validar_numero(&t);
                 }while(primo == 0);
                 punto1(atoi(&t));
@@ -334,19 +335,22 @@ int main(int argc, char** argv) {
             
             
             case 2:
+                do{
+                    printf("ha seleccionado el 2° punto \n \n");
                 
-                printf("ha seleccionado el 2° punto \n \n");
-                int numer;
                 printf("digite el valor numerico el cual desea verificar si es egolatra \n");
-                scanf("%i",&numer);
-                punto2(numer);
+                scanf("%s",&validar);
+                numero=validar_numero(&validar);
+                }while(numero== 0);
+                
+                punto2(atoi(&validar));
                 
                 break;
                 
             
            case 3:
                 printf("ha seleccionado el 3° punto \n \n");
-                char* validar = 0;
+                
                 do{
                   
                   printf("digite el numero que desea ver si es magico \n");
@@ -439,7 +443,7 @@ int main(int argc, char** argv) {
                 
                 
             
-            case 8:
+            case 8:printf("ha seleccionado salir");
                 break;    
         }
                 
