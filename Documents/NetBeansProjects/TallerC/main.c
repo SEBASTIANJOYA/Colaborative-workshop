@@ -25,6 +25,47 @@
  */
 
 
+//Implementacion del metodo del EJERCICIO 6.
+
+char* funcion_Fibonacci (int numero){
+    char* cadena="";
+    char*funcion1="";
+    char*funcion2="";
+    if (numero==0){
+        
+        cadena="0";
+	}
+	
+    else if (numero==1){
+	
+	cadena="1";
+	}
+	
+    else if (numero>=2){
+            funcion1=funcion_Fibonacci(numero-1);
+            funcion2=funcion_Fibonacci(numero-2);
+             const size_t linea1 = strlen(funcion1);
+             const size_t linea2 = strlen(funcion2);
+            char *resultado = malloc(linea1 + linea2 + 1); 
+            memcpy(resultado, funcion1, linea1);
+            memcpy(resultado + linea1, funcion2, linea2 + 1);
+            cadena=resultado;
+	}
+	return cadena;
+}
+int Comparacion(char* cadena1,char* cadena2){
+    char*buscar=NULL;
+    buscar=strstr(cadena1,cadena2);
+    int i=0;
+    while(buscar!=0){
+        i++;
+        buscar=strstr(buscar+1,cadena2);
+    }
+    return i;
+    
+}
+
+
 //Implementacion del metodo del EJERCICIO 5.
 
 void SumaDigitos(int intervaloUno, int intervaloDos,int numOmitir){
@@ -82,7 +123,7 @@ void separarIntervalos(int numero, int digito){
    
 }
 
-
+//IMPLEMENTACION DEL METODO DEL EJERCICIO 4
 char* estadoIMC(float peso,float altura, int gen){
     char* estado="";
     float imc=peso/(pow((altura/100),2));   
@@ -134,104 +175,11 @@ char* estadoIMC(float peso,float altura, int gen){
     }
     return estado;
 }
-//metodo ejercicio 2
-void  punto2(int numero){
-      int a,b,c,resultado;
-  a=numero/100;
-                b = (numero - a*100)/10;
-                c = (numero - a*100 - b*10);
-    
-                printf( "\nEl numero a provar es : " );
-                printf("\n");
-                printf("%d-",a);
-                printf("%d-",b);
-                printf("%d-",c);
-                printf("\n");
-                resultado=(a*a*a)+(b*b*b)+(c*c*c);
-               if(resultado==numero){
-                    printf("el numero es egolatra\n");
-               }
-               else{
-                    printf("el numero no es egolatra\n");
-               }
-                    printf("\nha ejecutado el 2° punto con exito \n");  
-}
 
-
-//metodo ejercicio 1
-void punto1(int y){
-      int num,x,cont=0;
-   for(num=y;num>=1;num--){
-                     for(x=1;x<=num;x++){
-                           if(num%x==0){
-                            cont++;
-                           }     
-                     } if(cont==2){
-                          printf("%d-",num);
-               
-                       }
-                         cont=0;
-                 }
-                printf("\nha ejecutado el 1° punto con exito \n"); 
-}
-
-
-
-int validar_numero(char numero[])
-{
-    int i;
-    for(i=0; i<strlen(numero); i++)
-    {
-        if(!(isdigit(numero[i])))
-        {
-            printf("\nINGRESA SOLO NUMEROS ENTEROS \n");
-            
-            return 0;
-        }
-    }
-    return 1;
-}
-//Implementacion del metodo del EJERCICIO 6.
-
-char* funcion_Fibonacci (int numero){
-    char* cadena="";
-    char*funcion1="";
-    char*funcion2="";
-	if (numero==0){
-		cadena="0";
-	}
-	
-    else if (numero==1){
-		cadena="1";
-	}
-	
-    else if (numero>=2){
-            funcion1=funcion_Fibonacci(numero-1);
-            funcion2=funcion_Fibonacci(numero-2);
-             const size_t linea1 = strlen(funcion1);
-             const size_t linea2 = strlen(funcion2);
-            char *resultado = malloc(linea1 + linea2 + 1); 
-            memcpy(resultado, funcion1, linea1);
-            memcpy(resultado + linea1, funcion2, linea2 + 1);
-            cadena=resultado;
-	}
-	return cadena;
-}
-int Comparacion(char* cadena1,char* cadena2){
-    char*buscar=NULL;
-    buscar=strstr(cadena1,cadena2);
-    int i=0;
-    while(buscar!=0){
-        i++;
-        buscar=strstr(buscar+1,cadena2);
-    }
-    return i;
-    
-}
-
+//IMPLEMENTACION DEL METODO DEL EJERCICIO 3
 int NumeroMagico(int numero){
     int Magico=numero,contador=0,guardar=numero,operation=0,verificar=0;
- while(numero>0){
+     while(numero>0){
         numero=numero/10;
         contador++;
     }
@@ -290,6 +238,64 @@ int Ascendente(int cont, int x[]){
 }
 
 
+//METODO EJERCICIO DOS
+void  punto2(int numero){
+      int a,b,c,resultado;
+  a=numero/100;
+                b = (numero - a*100)/10;
+                c = (numero - a*100 - b*10);
+    
+                printf( "\nEl numero a provar es : " );
+                printf("\n");
+                printf("%d-",a);
+                printf("%d-",b);
+                printf("%d-",c);
+                printf("\n");
+                resultado=(a*a*a)+(b*b*b)+(c*c*c);
+               if(resultado==numero){
+                    printf("el numero es egolatra\n");
+               }
+               else{
+                    printf("el numero no es egolatra\n");
+               }
+                    printf("\nha ejecutado el 2° punto con exito \n");  
+}
+
+
+//METODO EJERCICIO UNO
+void punto1(int y){
+      int num,x,cont=0;
+   for(num=y;num>=1;num--){
+                     for(x=1;x<=num;x++){
+                           if(num%x==0){
+                            cont++;
+                           }     
+                     } if(cont==2){
+                          printf("%d-",num);
+               
+                       }
+                         cont=0;
+                 }
+                printf("\nha ejecutado el 1° punto con exito \n"); 
+}
+
+
+
+int validar_numero(char numero[])
+{
+    int i;
+    for(i=0; i<strlen(numero); i++)
+    {
+        if(!(isdigit(numero[i])))
+        {
+            printf("\nINGRESA SOLO NUMEROS ENTEROS \n");
+            
+            return 0;
+        }
+    }
+    return 1;
+}
+
 
 //METODO MAIN DONDE SE LLEVARA A CABO LA EJECUCION DEL MENU CON SUS RESPECTIVAS OPCIONES
 
@@ -330,15 +336,15 @@ int main(int argc, char** argv) {
                 scanf("%i",&numer);
                 punto2(numer);
                 
-                    break;
+                break;
                 
             
            case 3:
-               printf("ha seleccionado el 3° punto \n \n");
-                  char* validar = 0;
-               do{
+                printf("ha seleccionado el 3° punto \n \n");
+                char* validar = 0;
+                do{
                   
-                    printf("digite el numero que desea ver si es magico \n");
+                  printf("digite el numero que desea ver si es magico \n");
                   scanf("%s", &validar);
                   numero=validar_numero(&validar);
                   }while(numero==0);
@@ -351,26 +357,23 @@ int main(int argc, char** argv) {
                   
                
                
-                 printf("\nha ejecutado el 3° punto con exito \n");
+                printf("\nha ejecutado el 3° punto con exito \n");
                 break;
                 
             
             case 4:
                 printf("ha seleccionado el 4° punto \n \n");
                 float peso,altura,imc;
-     int gen;
-     printf("digite su peso en kilogramos \n");
-     scanf("%f"  ,&peso) ;
-     printf("digite su altura en centimetros \n");
-     scanf("%f"  ,&altura);
-     printf("digite su genero 0:masculino, 1:femenino \n");
-     scanf("%i"  ,&gen);
-     imc=peso/(pow((altura/100),2));  ;     
-     printf("estado segun su IMC con valor %.2f es [%s]", imc,estadoIMC(peso,altura,gen));
-                
-                
-                
-                  printf("\nha ejecutado el 4° punto con exito \n");
+                int gen;
+                printf("digite su peso en kilogramos \n");
+                scanf("%f"  ,&peso) ;
+                printf("digite su altura en centimetros \n");
+                scanf("%f"  ,&altura);
+                printf("digite su genero 0:masculino, 1:femenino \n");
+                scanf("%i"  ,&gen);
+                imc=peso/(pow((altura/100),2));  ;     
+                printf("estado segun su IMC con valor %.2f es [%s]", imc,estadoIMC(peso,altura,gen));
+                printf("\nha ejecutado el 4° punto con exito \n");
                 break;    
                 
             
@@ -378,7 +381,6 @@ int main(int argc, char** argv) {
                  
                  printf("ha seleccionado el 5° punto \n \n");
                  int intervalouno,intervalodos,numomitir;
-                 
                  printf("digite el valor del intervalo uno \n");
                  scanf("%d",&intervalouno);
                  printf("digite el valor del intervalo dos \n");
@@ -386,7 +388,7 @@ int main(int argc, char** argv) {
                  printf("digite el valor a omitir \n");
                  scanf("%d",&numomitir);
                  SumaDigitos(intervalouno,intervalodos,numomitir);
-                   printf("\nha ejecutado el 5° punto con exito \n");
+                 printf("\nha ejecutado el 5° punto con exito \n");
                  break;
                 
             
@@ -400,35 +402,35 @@ int main(int argc, char** argv) {
                 printf("La cadena se encotro ");
                 printf("%d",Comparacion(cadena1,&cadena2));
                 printf(" veces\n");
-                  printf("\nha ejecutado el 6° punto con exito \n");
+                printf("\nha ejecutado el 6° punto con exito \n");
                 break;
                 
                 
             
             case 7:
-     printf("ha seleccionado el 7° punto \n \n");
+              printf("ha seleccionado el 7° punto \n \n");
     
-    printf("digite la cadena xo \n");
-     char cadena[1000];
-    scanf("%s",&cadena);
-    int cont=0,suma=0;
+              printf("digite la cadena xo \n");
+              char cadena[1000];
+              scanf("%s",&cadena);
+              int cont=0,suma=0;
     
-    for(int i=0;i<=strlen(cadena);i++){
-        if(cadena[i]=='O'||cadena[i]=='o'||cadena[i]=='0'){
-            cont++;
-            suma=suma+cont;
-        }
+                 for(int i=0;i<=strlen(cadena);i++){
+                     if(cadena[i]=='O'||cadena[i]=='o'||cadena[i]=='0'){
+                        cont++;
+                        suma=suma+cont;
+                    }
         
-        else {
-            cont=0;
-        }
+                 else {
+                    cont=0;
+            }
         
     }
     printf("puntaje total: ");
     printf("%d",suma);
     printf("\n");
-      printf("\nha ejecutado el 7° punto con exito \n");
-                break;
+    printf("\nha ejecutado el 7° punto con exito \n");
+    break;
                 
                 
             
